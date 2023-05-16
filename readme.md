@@ -70,7 +70,7 @@ When the using the metric Mean Squared Error, the model with the lowest mean squ
 under consideration. However, while using the Coefficient of Determination, the model with the highest Coefficient of 
 Variation is preferable. Using both metrics, the linear regression came up as the best model
 
-[View Code on Kaggle]()
+[View Code on Kaggle](https://www.kaggle.com/oluade111/energy-consumption-notebook/)
 
 [Use API]()
 
