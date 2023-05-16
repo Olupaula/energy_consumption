@@ -50,7 +50,7 @@ of steel industries.
 <p> 
     <img src="./energy_consumption_images/plot_of_Week Status_against_electric_energy_consumption.png">
     <p>
-        The amount of energy consumed is much on weekdays than on weekends
+        More energy is consumed on weekdays than on weekends
     </p>
 </p>
 
