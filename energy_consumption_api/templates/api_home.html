@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<div class="header">
+    <h1>
+        Predict Energy Consumption
+    </h1>
+</div>
+
+
+<hr>
+
+<div>
+    <h3>Introduction</h3>
+    This API predicts the energy consumption (in Kilowatt (KWh) Hour) by a steel industry, given the following five features:
+    <ol>
+        <li>Carbon Dioxide, CO2 (tCO2), Emission (ppm, i.e. Parts per million)
+            (<span>
+                Type: Continuous
+            </span>)
+        </li>
+
+        <li> Lagging Current Power Factor (%, i.e. percentage)
+            (<span>
+                Type: Continuous
+            </span>)
+        </li>
+
+        <li> Week Status
+            (<span>
+             Type: Categorical,
+                i.e Week_status = {
+                    'Weekday': 0,
+                    'Weekend': 1
+                }
+            </span>)
+        </li>
+
+        <li>Day of Week
+            (<span>
+                Type: Categorical,
+                i.e. Day_of_week = {
+                    'Sunday': 0,
+                    'Others' : 1
+                }
+            </span>)
+        </li>
+
+        <li> Load Type
+            (<span>
+              Type: Categorical,
+                i.e Load_Type = {
+                    'light_load': 0,
+                    'other_load_types': 1
+                }
+            </span>)
+        </li>
+    </ol>
+
+    <h3>How to Use</h3>
+
+    <p> Below is an example, in python file, of how to use this API: suppose there is a steel industry that emits about
+        2% (0.02) of carbon dioxide and has a lagging current power factor of 98%, is operated on weekends, on a Sunday
+        and has a high load type as shown in table 1.0, then the energy consumption by the industry is as shown below:
+    </p>
+
+    <div class="table">
+        <table>
+            <caption> Table 1.0: Sample Data Point </caption>
+            <tr>
+                <th>CO2 (tCO2)</th>
+                <th>Lagging Current Power Factor</th>
+                <th>Week Status</th>
+                <th>Day of Week </th>
+                <th>Load Type</th>
+            </tr>
+            <tr>
+                <td>0.02</td>
+                <td>68%</td>
+                <td>Weekend</td>
+                <td>Sunday</td>
+                <td>High Loads</td>
+
+            </tr>
+        </table>
+    </div>
+
+    <p>The API can be used in a python file (named client.py in this case) as shown below </p>
+
+     <div class="code">
+         <div>client.py</div>
+         <pre>
+            <span class="primary">import</span> <span class="secondary">requests</span>
+
+            endpoint = "http://127.0.0.1:8000/nursery_api"
+            data = {
+                'CO2(tCO2)': 0.02,
+                'Lagging_Current_Power_Factor': 68,
+                'WeekStatus': 1,
+                'Day_of_week': 0,
+                'Load_Type': 1
+            }
+
+            predict = <span class="secondary">requests</span>.<span class="secondary">post</span>(endpoint, json=data_dict)
+
+            energy_consumption_dictionary = predict.<span class="secondary">json()</span>
+            <span class="primary">print</span>(<span class="strings">"energy consumption dictionary = "</span>,  energy_consumption_dictionary)
+
+            energy_consumed = energy_consumption_dictionary[<span class="strings">'energy_consumed'</span>]
+            <span class="primary">print</span>(<span class="strings">"energy consumed = "</span>, energy_consumed)
+
+         </pre>
+     </div>
+    <p>  </p>
+</div>
+
+</body>
+</html>
