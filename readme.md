@@ -1,4 +1,4 @@
-# Energy Consumption in Steel Industries
+# Supervised Learning Models for Energy Consumption in Steel Industries
 This project titled [Energy Consumption](https://en.wikipedia.org/wiki/Electric_energy_consumption) 
 in [Steel](https://en.wikipedia.org/wiki/Steel) [Industries](https://en.wikipedia.org/wiki/Industry), 
 deals with predicting what amount of energy will be consumed by a steel industry.
